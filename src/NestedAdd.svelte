@@ -1,6 +1,8 @@
 <script>
+    export let test3;
+    export let count3;
 </script>
 
-<main>
-<p>HOUSE</p>
-</main>
+
+<p>{test3} {count3}</p>
+

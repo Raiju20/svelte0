@@ -1,25 +1,67 @@
 <script>
-  let name = 'grass';
-  let name1 = 'frog';
-  import Nested from './Nested.svelte';
+	import Nested from './Nested.svelte';
+	let test = '5';
+	let count = 0;
+
+	function increment() {
+		count += 1;
+	}
+
 </script>
 
 <main>
-<p>Всем привет! / {name1}</p>
-<h>Всем пока! / {name}<h>
-<p>This is a paragraph:</p>
-<Nested />
+
+<div class="container">
+
+  <div class="element1">Element 1</div>
+
+  <div class="element2">
+  Element 2
+  </div>
+
+  <div class="element3">
+  Element 3
+  <Nested count2={count} test2={test}/>
+  </div>
+
+</div>
+
+<button on:click={increment}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
+
 </main>
 
 <style>
-	main {
-		color: darkblue;
-		font-family: 'Comic Sans MS', cursive;
-		font-size: 3em;
+.container {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+}
+
+.element1 {
+
+  flex-basis: 50%;
+
+}
+
+.element2 {
+
+  flex-basis:25%;
+
+}
+
+.element3 {
+
+  flex-basis: 25%;
+
+}
+
+	div{
+		color: #146cdf;
 	}
-  p {
-		color: orange;
-		font-family: 'Times', cursive;
-		font-size: 1em;
-	}
+	
 </style>
