@@ -18,7 +18,7 @@ const options = [
     //Функция вызывается из верхнего меню и определяет
     //выбранный пользователем компонент
      selected = options[idcomp]
-     
+    
   }
 
   
@@ -35,6 +35,7 @@ const options = [
      setTimeout(() => {
       clicked = false
      }, 200);
+
   }
 
 let clicked = false;
@@ -47,9 +48,9 @@ let clicked = false;
     <!-- Header content -->
     <nav>
       <ul>
-        <li><a class:flt={clicked} on:click={(c)=>SelectComp(0)} href="#">Menu item 1</a></li>
-        <li><a on:click={(c)=>SelectComp(1)} href="#">Menu item 2</a></li>
-        <li><a on:click={(c)=>SelectComp(2)} href="#">Menu item 3</a></li>
+        <li><a class:flt={selected === options[0]} on:click={(c)=>SelectComp(0)} href="#">Menu item 1</a></li>
+        <li><a class:flt={selected === options[1]} on:click={(c)=>SelectComp(1)} href="#">Menu item 2</a></li>
+        <li><a class:flt={selected === options[2]} on:click={(c)=>SelectComp(2)} href="#">Menu item 3</a></li>
       </ul>
     </nav>
   </header>
@@ -77,7 +78,7 @@ let clicked = false;
   </div>
   <footer>
     <!-- Footer content -->
-    <p>&copy; 2023 Holy Grail Page</p>
+    <p>&copy; 2024 Holy Grail Page</p>
   </footer>
 </div>
 

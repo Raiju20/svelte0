@@ -6,6 +6,7 @@
     {#if messagefrom}
         {messagefrom}
     {/if}
+
 </h2>
 
 <style>
