@@ -2,6 +2,7 @@
 import Comp1 from './lib/Comp1.svelte'
 import Comp2 from './lib/Comp2.svelte'
 import Comp3 from './lib/Comp3.svelte'
+import Comp4 from './lib/Comp4.svelte'
 
 import DetectMessage from './lib/Detector.svelte'
 
@@ -10,6 +11,7 @@ const options = [
 		{  component: Comp1 },
 		{  component: Comp2 },
     {  component: Comp3 },
+    {  component: Comp4 },
 	];
 
   let selected = options[0]; //компонент по умолчанию
@@ -51,6 +53,7 @@ let clicked = false;
         <li><a class:flt={selected === options[0]} on:click={(c)=>SelectComp(0)} href="#">Menu item 1</a></li>
         <li><a class:flt={selected === options[1]} on:click={(c)=>SelectComp(1)} href="#">Menu item 2</a></li>
         <li><a class:flt={selected === options[2]} on:click={(c)=>SelectComp(2)} href="#">Menu item 3</a></li>
+        <li><a class:flt={selected === options[3]} on:click={(c)=>SelectComp(3)} href="#">Menu item 4</a></li>
       </ul>
     </nav>
   </header>

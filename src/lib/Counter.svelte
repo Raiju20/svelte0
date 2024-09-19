@@ -8,3 +8,4 @@
 <button on:click={increment}>
   count is {count}
 </button>
+rgb(25, 44, 107)
