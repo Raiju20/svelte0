@@ -3,6 +3,7 @@ import Comp1 from './lib/Comp1.svelte'
 import Comp2 from './lib/Comp2.svelte'
 import Comp3 from './lib/Comp3.svelte'
 import Comp4 from './lib/Comp4.svelte'
+import TopMenu from './lib/TopMenu.svelte'
 
 import DetectMessage from './lib/Detector.svelte'
 
@@ -49,12 +50,13 @@ let clicked = false;
   <header>
     <!-- Header content -->
     <nav>
-      <ul>
+<!--    <ul>
         <li><a class:flt={selected === options[0]} on:click={(c)=>SelectComp(0)} href="#">Menu item 1</a></li>
         <li><a class:flt={selected === options[1]} on:click={(c)=>SelectComp(1)} href="#">Menu item 2</a></li>
         <li><a class:flt={selected === options[2]} on:click={(c)=>SelectComp(2)} href="#">Menu item 3</a></li>
         <li><a class:flt={selected === options[3]} on:click={(c)=>SelectComp(3)} href="#">Menu item 4</a></li>
-      </ul>
+      </ul> -->
+      <TopMenu selectcomp = {SelectComp}/> 
     </nav>
   </header>
   <div class="container">
@@ -120,7 +122,7 @@ header {
 }
 
 header nav ul {
-  list-style: none;
+  list-style: none; 
   margin: 0;
   padding: 0;
   display: flex;

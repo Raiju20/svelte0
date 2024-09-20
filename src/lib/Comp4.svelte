@@ -1,13 +1,12 @@
 <script>
-    export let app_function
 	const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 	let selected = colors[0];
 </script>
 
-<div class='wrapper'>
-<h1 style="color: {selected}">Pick a colour</h1>
+<div>
+<h1 class='wrapper' style="color: {selected}">Pick a colour</h1>
 
-    <div>
+    <div >
         <button
             aria-current={selected === 'red'}
             aria-label="red"
@@ -56,7 +55,6 @@
         style="background: violet"
         on:click={() => selected = 'violet'}
         ></button>
-    
 
     </div>
 </div>
@@ -70,9 +68,10 @@
     
         div {
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             grid-gap: 10px;
             max-width: 00px;
+            align-items: center;
         }
     
         button {
@@ -88,5 +87,16 @@
             transform: none;
             filter: none;
             box-shadow: inset 3px 3px 4px rgba(0,0,0,0.2);
+        }
+
+        div button {
+        border:1px solid black;
+        padding:10px;  
+        }
+
+        .wrapper{
+        border:1px solid rgb(66, 66, 66);
+        border-radius: 30px;
+        padding:30px;
         }
     </style>
