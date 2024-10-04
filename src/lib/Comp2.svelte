@@ -4,11 +4,11 @@
 
 <div class='wrapper'>
 <h1>
-    Component 2
+    Компонент 2
 </h1>
 
 <div>
-    <button on:click={()=>app_function('Сообщение от Comp2')}>Кнопка 2</button>
+    <button on:click={()=>app_function('Сообщение 2')}>Кнопка 2</button>
 </div>
 </div>
 

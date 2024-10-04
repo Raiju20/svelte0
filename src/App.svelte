@@ -2,7 +2,6 @@
 import Comp1 from './lib/Comp1.svelte'
 import Comp2 from './lib/Comp2.svelte'
 import Comp3 from './lib/Comp3.svelte'
-import Comp4 from './lib/Comp4.svelte'
 import TopMenu from './lib/TopMenu.svelte'
 
 import DetectMessage from './lib/Detector.svelte'
@@ -12,7 +11,6 @@ const options = [
 		{  component: Comp1 },
 		{  component: Comp2 },
     {  component: Comp3 },
-    {  component: Comp4 },
 	];
 
   let selected = options[0]; //компонент по умолчанию
@@ -62,12 +60,12 @@ let clicked = false;
   <div class="container">
     <div class="left-sidebar">
       <!-- Left sidebar content -->
-      <h2>Left Sidebar</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h2>Левая панель</h2>
+      <p>Текст левой панели.</p>
     </div>
     <div class="main-content">
       <!-- Main content area -->
-      <h1>Main Content</h1>
+      <h1>Центральная панель</h1>
 
       <!-- Динамические компоненты -->
       <svelte:component 
@@ -77,7 +75,7 @@ let clicked = false;
     </div>
     <div class="right-sidebar">
       <!-- Right sidebar content -->
-      <h2>Right Sidebar</h2>
+      <h2>Правая панель</h2>
       <DetectMessage messagefrom={current_message}/>
     </div>
   </div>

@@ -4,10 +4,10 @@
 
 <div class='wrapper'>
 <h1>
-    Component 3
+    Компонент 3
 </h1>
 <div>
-    <button on:click={()=>app_function('Сообщение от Comp3')}>Кнопка 3</button>
+    <button on:click={()=>app_function('Сообщение 3')}>Кнопка 3</button>
 </div>
 </div>
 
