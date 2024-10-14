@@ -6,6 +6,7 @@
         {label: "Страница 1" },
         {label: "Страница 2" },
         {label: "Страница 3" },
+        {label: "Страница 4" },
         // Add more items here...
     ];
 </script>

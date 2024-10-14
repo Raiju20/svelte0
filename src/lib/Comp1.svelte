@@ -1,26 +1,56 @@
 <script>
-    export let app_function
-</script>
-
-<div class='wrapper'>
-<h1>
-    Компонент 1
-</h1>
-<div>
-    <button on:click={()=>app_function('Сообщение 1')}>Кнопка 1</button>
-</div>
-</div>
-
-<style>
-    button{
-        width: 100px;
-        height:50px;
-        background-color: purple;
-        color:azure
+    import { count } from './stores.js';
+    export let app_function;
+    let numbers = $count;
+    let selectedNumberIndex = null;
+    let uniqueKeys = Array.from({ length: 10 }, (_, i) => `key-${i + 1}`);
+  
+    $: {
+      numbers = $count;
+      uniqueKeys = Array.from({ length: numbers.length }, (_, i) => `key-${i + 1}`);
     }
-    .wrapper{
-        border:1px solid silver;
-        border-radius: 30px;
-        padding:30px;
+  
+    function addNumber() {
+      count.update(n => [...n, n.length + 1]);
     }
-</style>
+  
+    function removeNumber() {
+      if (numbers.length > 0) {
+        count.update(n => n.slice(0, -1));
+        if (numbers.length === 1) {
+          app_function('Элементов больше нет');
+        }
+      }
+    }
+  
+    function selectNumber() {
+      if (selectedNumberIndex === null) {
+        selectedNumberIndex = 0;
+      } else {
+        selectedNumberIndex = (selectedNumberIndex + 1) % numbers.length;
+      }
+    }
+  </script>
+
+  <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+    <button on:click={addNumber}>Добавить</button>
+    <button on:click={removeNumber} disabled={numbers.length === 0}>Удалить</button>
+    <button on:click={selectNumber}>Выделить</button>
+  </div>
+  
+  <div style="display: flex; justify-content: space-around;">
+    <table>
+      <tr>
+        <th style="text-align: center">Элементы массива</th>
+        <th style="text-align: center">Индексы элементов</th>
+        <th style="text-align: center">Уникальные ключи</th>
+      </tr>
+      {#each numbers as number, index}
+        <tr style:background-color={index === selectedNumberIndex ? 'green' : 'none'}>
+          <td style="text-align: center">{number}</td>
+          <td style="text-align: center">{index}</td>
+          <td style="text-align: center">{Math.floor(Math.random() * 1000)}</td>
+        </tr>
+      {/each}
+    </table>
+  </div>

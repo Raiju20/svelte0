@@ -2,6 +2,7 @@
 import Comp1 from './lib/Comp1.svelte'
 import Comp2 from './lib/Comp2.svelte'
 import Comp3 from './lib/Comp3.svelte'
+import Comp4 from './lib/Comp4.svelte'
 import TopMenu from './lib/TopMenu.svelte'
 
 import DetectMessage from './lib/Detector.svelte'
@@ -11,6 +12,7 @@ const options = [
 		{  component: Comp1 },
 		{  component: Comp2 },
     {  component: Comp3 },
+    {  component: Comp4 },
 	];
 
   let selected = options[0]; //компонент по умолчанию
