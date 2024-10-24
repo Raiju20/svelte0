@@ -32,6 +32,8 @@
     }
   </script>
 
+<div class="wrapper">
+
   <div style="display: flex; justify-content: space-around; margin-top: 20px;">
     <button on:click={addNumber}>Добавить</button>
     <button on:click={removeNumber} disabled={numbers.length === 0}>Удалить</button>
@@ -54,3 +56,13 @@
       {/each}
     </table>
   </div>
+
+</div>
+
+<style>
+  .wrapper{
+      border:1px solid silver;
+      border-radius: 30px;
+      padding:30px;
+  }
+</style>

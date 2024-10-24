@@ -7,7 +7,7 @@
 
 {#if $data_loading}
     <div class="progbar" out:fade>
-        <Fa icon={faSpinner} size="3x" spin color="blue" />
+        <Fa icon={faSpinner} size="3x" spin color="black" />
     </div>
 {/if}
 

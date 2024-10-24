@@ -1,26 +1,65 @@
 <script>
-    export let app_function
+    import departData from "./stores.js";
+    import Progbar from "./progBar.svelte";
+    import { data_loading } from "./stores.js";
+
+    export let app_function;
+
+    let selected_1;
+    let selected_2;
+
+    const onDepSelected = (e) => {
+        selected_2 = "bla"; //Установим преп-ля в placeholder
+    };
+
+    const data = departData();
+    console.log($data);
 </script>
 
-<div class='wrapper'>
-<h1>
-    Компонент 4
-</h1>
-<div>
-    <button on:click={()=>app_function('Сообщение 4')}>Кнопка 4</button>
+
+{#if $data_loading}
+    <Progbar />
+{:else}
+<div class="wrapper">
+
+    {#if $data}
+        <div>
+            <select bind:value={selected_1} on:change={(v) => onDepSelected(v)}>
+                <option selected disabled>Выберите кафедру</option>
+                {#each $data.Departs as item, i}
+                    <option value={item.Depart_ID}>
+                        {item.DepartName}
+                    </option>
+                {/each}
+            </select>
+        </div>
+
+        <div>
+            <select bind:value={selected_2}>
+                <option value="bla" selected disabled
+                    >Выберите преподавателя</option
+                >
+                {#each $data.Teachers.filter((t) => t.Depart_ID == selected_1) as item, i}
+                    <option value={item.Emp_ID}>
+                        {item.FIO}
+                    </option>
+                {/each}
+            </select>
+        </div>
+    {/if}
 </div>
-</div>
+{/if}
+
 
 <style>
-    button{
-        width: 100px;
-        height:50px;
-        background-color: rgb(22, 184, 108);
-        color:azure
-    }
-    .wrapper{
-        border:1px solid silver;
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid silver;
         border-radius: 30px;
-        padding:30px;
+        padding: 20px;
+    }
+    .wrapper > div {
+        margin-left: 20px;
     }
 </style>
